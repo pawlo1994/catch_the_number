@@ -1,8 +1,35 @@
-function App() {
+import { useState } from "react";
+
+const App = () => {
+  const [x, setX] = useState(Math.ceil(Math.random() * 200));
+  const [y, setY] = useState(Math.ceil(Math.random() * 100));
+
   return (
-    <h2>
-      Welcome to Jumping Numbers
-    </h2>
+    <>
+      <h2>
+        Welcome to Jumping Numbers
+      </h2>
+      <button
+        onClick={
+          () => {
+            setInterval(() => {
+              setX(Math.ceil(Math.random() * 200));
+              setY(Math.ceil(Math.random() * 100));
+              console.log(x, y);
+            }, 1000);
+          }}
+      >
+        START
+      </button>
+      <button
+        style={{
+          display: "block",
+          marginLeft: x,
+          marginTop: y,
+        }}>
+        5
+      </button>
+    </>
   );
 }
 
