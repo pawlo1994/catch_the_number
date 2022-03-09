@@ -1,8 +1,8 @@
 import { useState } from "react";
 
 const App = () => {
-  const [x, setX] = useState(Math.ceil(Math.random() * 200));
-  const [y, setY] = useState(Math.ceil(Math.random() * 100));
+  const [x, setX] = useState(0);
+  const [y, setY] = useState(0);
 
   return (
     <>
