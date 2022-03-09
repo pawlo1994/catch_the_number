@@ -15,7 +15,6 @@ const App = () => {
             setInterval(() => {
               setX(Math.ceil(Math.random() * 200));
               setY(Math.ceil(Math.random() * 100));
-              console.log(x, y);
             }, 1000);
           }}
       >
@@ -26,7 +25,13 @@ const App = () => {
           display: "block",
           marginLeft: x,
           marginTop: y,
-        }}>
+        }}
+        onClick={
+          () => {
+            setX(Math.ceil(Math.random() * 200));
+            setY(Math.ceil(Math.random() * 100));
+          }
+        }>
         5
       </button>
     </>
