@@ -1,39 +1,46 @@
 import { useState } from "react";
+import { AppHeader, GameStartButton, NumberButton, NumberButtonField } from "./styled_app";
 
 const App = () => {
-  const [x, setX] = useState(0);
-  const [y, setY] = useState(0);
+  const [intervalID, setIntervalID] = useState(null);
+  const [isGameStarted, setIsGameStarted] = useState(false);
+  const [x, setX] = useState(10);
+  const [y, setY] = useState(10);
 
   return (
     <>
-      <h2>
+      <AppHeader>
         Welcome to Jumping Numbers
-      </h2>
-      <button
+      </AppHeader>
+      <GameStartButton
         onClick={
           () => {
-            setInterval(() => {
-              setX(Math.ceil(Math.random() * 200));
-              setY(Math.ceil(Math.random() * 100));
-            }, 1000);
+            setIsGameStarted(!isGameStarted);
+            !isGameStarted ?
+              setIntervalID(setInterval(() => {
+                setX(Math.ceil(Math.random() * 200));
+                setY(Math.ceil(Math.random() * 100));
+              }, 1000)) : clearInterval(intervalID);
           }}
       >
-        START
-      </button>
-      <button
-        style={{
-          display: "block",
-          marginLeft: x,
-          marginTop: y,
-        }}
-        onClick={
-          () => {
-            setX(Math.ceil(Math.random() * 200));
-            setY(Math.ceil(Math.random() * 100));
+        {!isGameStarted ? "START" : "STOP"}
+      </GameStartButton>
+      <NumberButtonField>
+        <NumberButton
+          style={{
+            left: x > 200 ? x - 40 : x,
+            top: y > 300 ? y - 40 : y,
+          }}
+          onClick={
+            () => {
+              setX(Math.ceil(Math.random() * 200) + 10);
+              setY(Math.ceil(Math.random() * 100) + 10);
+            }
           }
-        }>
-        5
-      </button>
+          disabled={!isGameStarted}>
+          5
+        </NumberButton>
+      </NumberButtonField>
     </>
   );
 }
