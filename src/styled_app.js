@@ -1,18 +1,23 @@
 import styled from "styled-components";
 
-export const AppHeader = styled.h2`
+export const AppHeader = styled.header`
+    margin: 20px 0;
+    padding: 10px 0;
     text-align: center;
     font-size: 40px;
     font-weight: normal;
-    text-shadow: 2px 2px 0px #999;
+    text-shadow: 2px 2px 2px #ddd;
+    background-color: #aaa;
 `;
 
 export const GameStartButton = styled.button`
-    transition: ease 0.3s ;
+    padding: 10px;
+    transition: ease box-shadow 0.3s;
     font-size: 20px;
     display: block;
     margin: 0 auto;
     border: none;
+    border-radius: 10px;
     box-shadow: 0px 0px 1px 1px #ccc;
 
     &:hover{
