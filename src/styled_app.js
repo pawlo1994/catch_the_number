@@ -1,15 +1,5 @@
 import styled from "styled-components";
 
-export const AppHeader = styled.header`
-    margin: 20px 0;
-    padding: 10px 0;
-    text-align: center;
-    font-size: 40px;
-    font-weight: normal;
-    text-shadow: 2px 2px 2px #ddd;
-    background-color: #aaa;
-`;
-
 export const GameStartButton = styled.button`
     padding: 10px;
     transition: ease box-shadow 0.3s;
@@ -41,9 +31,19 @@ export const NumberButtonField = styled.div`
 `;
 
 export const NumberButton = styled.button`
-    width: 30px;
-    height: 30px;
-    font-size: 24px;
+    font-size: 60px;
+    padding: 0 20px;
+    background-color: #090;
+    color: #fff;
+    border-radius: 5px;
+    border: none;
     display: block;
     position: relative;
+    transition: 0.3s ;
+
+    &:disabled{
+        opacity: 0.2;
+        background-color: #0e0;
+        color: #aaa;
+    }
 `;
