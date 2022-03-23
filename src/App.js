@@ -1,6 +1,6 @@
 import { useState } from "react";
-import { GameStartButton, NumberButton, NumberButtonField } from "./styled_app";
-import { GlobalStyle } from "./globalStyle";
+import { GameStartButton, NumberButton, NumberButtonField } from "./styled_app.js";
+import { GlobalStyle } from "./globalStyle.js";
 import { AppHeader } from "./AppHeader";
 import { GameInfo } from "./GameInfo";
 

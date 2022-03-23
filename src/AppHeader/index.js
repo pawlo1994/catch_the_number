@@ -1,4 +1,4 @@
-import { StyledAppHeader, StyledAppHeaderContent } from "./styled";
+import { StyledAppHeader, StyledAppHeaderContent } from "./styled.js";
 
 export const AppHeader = ({ content }) => (
     <StyledAppHeader>

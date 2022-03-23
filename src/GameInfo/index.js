@@ -1,4 +1,4 @@
-import { StyledGameInfo } from "./styled"
+import { StyledGameInfo } from "./styled.js"
 
 
 export const GameInfo = ({ score, lives }) => (
