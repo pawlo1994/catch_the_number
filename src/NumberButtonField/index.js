@@ -17,8 +17,7 @@ export const NumberButtonField = ({
         >
             <NumberButton
                 style={{
-                    left: x > 200 ? x - 40 : x,
-                    top: y > 300 ? y - 40 : y,
+                    transform: `translate(${x}px, ${y}px)`,
                 }}
                 onClick={() => {
                     setX(Math.ceil(Math.random() * 200) + 10);
