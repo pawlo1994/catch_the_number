@@ -7,7 +7,8 @@ export const NumberButtonField = ({
     y,
     score,
     setScore,
-    setIntervalTime,
+    changeIntervalTime,
+    setCurrentIntervalTime,
     setX,
     setY,
     isGameStarted }) => (
@@ -25,10 +26,10 @@ export const NumberButtonField = ({
                     setScore(score + 5);
                     clearInterval(intervalID.current);
                     score <= 100 && lives > 0 ?
-                        setIntervalTime(1000)
+                        changeIntervalTime(setCurrentIntervalTime(1000))
                         : score > 100 && score <= 200 && lives > 0
-                            ? setIntervalTime(500)
-                            : setIntervalTime(300);
+                            ? changeIntervalTime(setCurrentIntervalTime(500))
+                            : changeIntervalTime(setCurrentIntervalTime(300));
                 }}
                 disabled={!isGameStarted || lives === 0}>
                 5
