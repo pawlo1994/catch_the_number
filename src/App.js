@@ -4,6 +4,7 @@ import { GlobalStyle } from "./globalStyle.js";
 import { AppHeader } from "./AppHeader";
 import { GameInfo } from "./GameInfo";
 import { NumberButtonField } from "./NumberButtonField/index.js";
+import { useChangeIntervalTime } from "./useChangeIntervalTime.js";
 
 const App = () => {
   const [isGameStarted, setIsGameStarted] = useState(false);
@@ -11,18 +12,18 @@ const App = () => {
   const [y, setY] = useState(10);
   const [score, setScore] = useState(0);
   const [lives, setLives] = useState(5);
+  const [currentIntervalTime, setCurrentIntervalTime] = useState(1000);
   const intervalID = useRef(null);
 
-  const setIntervalTime = (intervalTime) => {
-    intervalID.current = setInterval(() => {
-      setX(Math.ceil(Math.random() * 200));
-      setY(Math.ceil(Math.random() * 100));
-      setLives(lives => lives > 0 ? lives - 1 : lives);
-    }, intervalTime);
-    if (isGameStarted && lives === 0) {
-      clearInterval(intervalID.current);
-    }
-  };
+  const { changeIntervalTime } =
+    useChangeIntervalTime(
+      intervalID,
+      setX,
+      setY,
+      setLives,
+      lives,
+      isGameStarted,
+      currentIntervalTime);
 
   return (
     <>
@@ -31,6 +32,8 @@ const App = () => {
       <GameInfo
         score={score}
         lives={lives}
+        currentIntervalTime={currentIntervalTime}
+        isGameStarted={isGameStarted}
       />
       <GameStartButton
         onClick={
@@ -41,10 +44,10 @@ const App = () => {
             }
             setIsGameStarted(true);
             if (lives !== 0 && !isGameStarted) {
-              setIntervalTime(1000)
+              changeIntervalTime(setCurrentIntervalTime(currentIntervalTime));
             }
             else {
-              setIsGameStarted(false)
+              setIsGameStarted(false);
               clearInterval(intervalID.current);
             }
           }
@@ -62,7 +65,9 @@ const App = () => {
         setY={setY}
         score={score}
         setScore={setScore}
-        setIntervalTime={setIntervalTime}
+        currentIntervalTime={currentIntervalTime}
+        setCurrentIntervalTime={setCurrentIntervalTime}
+        changeIntervalTime={changeIntervalTime}
         isGameStarted={isGameStarted}
       />
     </>
