@@ -1,11 +1,12 @@
 import { useSelector } from "react-redux";
-import { selectLives, selectScore } from "../gameStatsSlice.js";
+import { selectIntervalTime, selectLives, selectScore } from "../gameStatsSlice.js";
 import { StyledGameInfo } from "./styled.js"
 
 
-export const GameInfo = ({ currentIntervalTime }) => {
+export const GameInfo = () => {
     const score = useSelector(state => selectScore(state));
     const lives = useSelector(state => selectLives(state));
+    const intervalTime = useSelector(state => selectIntervalTime(state));
     return (
         <StyledGameInfo>
             <p>
@@ -15,7 +16,7 @@ export const GameInfo = ({ currentIntervalTime }) => {
                 ❤️: {lives}
             </p>
             <p>
-                ⏳:{currentIntervalTime / 1000}s
+                ⏳:{intervalTime / 1000}s
             </p>
         </StyledGameInfo>
     )
