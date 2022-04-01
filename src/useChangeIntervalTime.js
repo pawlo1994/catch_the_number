@@ -1,9 +1,19 @@
-export const useChangeIntervalTime = (intervalID, setX, setY, setLives, lives, isGameStarted, currentIntervalTime) => {
+import { useDispatch, useSelector } from "react-redux";
+import { decreaseLives, selectIsGameStarted, selectLives, setNewNumberButtonPosition, toggleIsGameStarted } from "./gameStatsSlice";
+
+export const useChangeIntervalTime = (intervalID, currentIntervalTime) => {
+    const dispatch = useDispatch();
+    const isGameStarted = useSelector(state => selectIsGameStarted(state));
+    const lives = useSelector(state => selectLives(state));
     const changeIntervalTime = () => {
         intervalID.current = setInterval(() => {
-            setX(Math.ceil(Math.random() * 200));
-            setY(Math.ceil(Math.random() * 100));
-            setLives(lives => lives > 0 ? lives - 1 : lives);
+            dispatch(setNewNumberButtonPosition());
+            if (lives !== 0) {
+                dispatch(decreaseLives());
+            };
+            if (lives === 0) {
+                clearInterval(intervalID.current);
+            }
         }, currentIntervalTime);
         if (isGameStarted && lives === 0) {
             clearInterval(intervalID.current);
