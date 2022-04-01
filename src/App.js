@@ -5,24 +5,19 @@ import { AppHeader } from "./AppHeader";
 import { GameInfo } from "./GameInfo";
 import { NumberButtonField } from "./NumberButtonField/index.js";
 import { useChangeIntervalTime } from "./useChangeIntervalTime.js";
+import { useDispatch, useSelector } from "react-redux";
+import { resetScoreAndLives, selectIsGameStarted, selectLives, toggleIsGameStarted } from "./gameStatsSlice.js";
 
 const App = () => {
-  const [isGameStarted, setIsGameStarted] = useState(false);
-  const [x, setX] = useState(10);
-  const [y, setY] = useState(10);
-  const [score, setScore] = useState(0);
-  const [lives, setLives] = useState(5);
+  const dispatch = useDispatch();
+  const isGameStarted = useSelector(state => selectIsGameStarted(state));
+  const lives = useSelector(state => selectLives(state));
   const [currentIntervalTime, setCurrentIntervalTime] = useState(1000);
   const intervalID = useRef(null);
 
   const { changeIntervalTime } =
     useChangeIntervalTime(
       intervalID,
-      setX,
-      setY,
-      setLives,
-      lives,
-      isGameStarted,
       currentIntervalTime);
 
   return (
@@ -30,41 +25,28 @@ const App = () => {
       <GlobalStyle />
       <AppHeader content="c4tch th3 numb3r" />
       <GameInfo
-        score={score}
-        lives={lives}
         currentIntervalTime={currentIntervalTime}
-        isGameStarted={isGameStarted}
       />
       <GameStartButton
         onClick={
           () => {
-            if (lives === 0) {
-              setLives(5);
-              setScore(0);
-            }
-            setIsGameStarted(true);
+            dispatch(toggleIsGameStarted());
             if (lives !== 0 && !isGameStarted) {
               changeIntervalTime(setCurrentIntervalTime(currentIntervalTime));
             }
             else {
-              setIsGameStarted(false);
+              dispatch(toggleIsGameStarted());
+              dispatch(resetScoreAndLives());
               clearInterval(intervalID.current);
             }
           }
         }
         hidden={isGameStarted && lives !== 0}
       >
-        {!isGameStarted ? "▶️" : "⏹"}
+        {!isGameStarted ? "▶️" : "🔁"}
       </GameStartButton>
       <NumberButtonField
-        lives={lives}
         intervalID={intervalID}
-        x={x}
-        setX={setX}
-        y={y}
-        setY={setY}
-        score={score}
-        setScore={setScore}
         currentIntervalTime={currentIntervalTime}
         setCurrentIntervalTime={setCurrentIntervalTime}
         changeIntervalTime={changeIntervalTime}
