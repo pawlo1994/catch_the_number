@@ -16,8 +16,8 @@ const gameStatsSlice = createSlice({
         },
         setNewNumberButtonPosition: (state, { payload: lives }) => {
             if (lives !== 0) {
-                state.x = Math.ceil(Math.random() * 200) + 10;
-                state.y = Math.ceil(Math.random() * 100) + 10;
+                state.x = Math.ceil(Math.random() * 150) + 10;
+                state.y = Math.ceil(Math.random() * 150) + 10;
             }
         },
         increaseScore: state => {
