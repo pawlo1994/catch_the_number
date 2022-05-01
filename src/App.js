@@ -13,7 +13,6 @@ const App = () => {
   const lives = useSelector(state => selectLives(state));
   const intervalTime = useSelector(state => selectIntervalTime(state));
   const intervalID = useRef(null);
-  console.log(intervalTime);
 
   const { changeIntervalTime } = useChangeIntervalTime(intervalID);
   return (
