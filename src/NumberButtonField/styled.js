@@ -6,9 +6,8 @@ export const StyledNumberButtonField = styled.div`
     background-color: #ccc;
     border-radius: 10px;
     margin: 15px auto;
-    width: 80%;
-    max-width: 600px;
-    height: 200px;
+    width: 250px;
+    height: 250px;
     transition: ease filter 0.3s;
     ${({ hidden }) => hidden && css`
         display: none;
@@ -28,7 +27,7 @@ export const NumberButtonFieldText = styled.p`
     font-size: 20px;
     background-color: #f00;
     color: #fff;
-    border-radius: 50px;
+    border-radius: 20px;
 
     ${({ hidden }) => hidden && css`
         display: none;
