@@ -2,7 +2,6 @@ import { useRef } from "react";
 import { GameStartButton } from "./styled_app.js";
 import { GlobalStyle } from "./globalStyle.js";
 import { AppHeader } from "./AppHeader";
-import { GameInfo } from "./GameInfo";
 import { NumberButtonField } from "./NumberButtonField/index.js";
 import { useChangeIntervalTime } from "./useChangeIntervalTime.js";
 import { useDispatch, useSelector } from "react-redux";
@@ -21,7 +20,6 @@ const App = () => {
     <>
       <GlobalStyle />
       <AppHeader content="c4tch th3 numb3r" />
-      <GameInfo />
       <GameStartButton
         onClick={
           () => {
