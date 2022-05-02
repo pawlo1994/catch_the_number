@@ -1,11 +1,19 @@
 import { useRef } from "react";
+import { useDispatch, useSelector } from "react-redux";
 import { GameStartButton } from "./styled_app.js";
 import { GlobalStyle } from "./globalStyle.js";
 import { AppHeader } from "./AppHeader";
 import { NumberButtonField } from "./NumberButtonField/index.js";
+import { Footer } from "./Footer/index.js";
 import { useChangeIntervalTime } from "./useChangeIntervalTime.js";
-import { useDispatch, useSelector } from "react-redux";
-import { resetScoreAndLives, selectIntervalTime, selectIsGameStarted, selectLives, toggleIsGameStarted, setNewIntervalTime } from "./gameStatsSlice.js";
+import {
+  resetScoreAndLives,
+  selectIntervalTime,
+  selectIsGameStarted,
+  selectLives,
+  toggleIsGameStarted,
+  setNewIntervalTime
+} from "./gameStatsSlice.js";
 
 const App = () => {
   const dispatch = useDispatch();
@@ -42,6 +50,7 @@ const App = () => {
         intervalID={intervalID}
         changeIntervalTime={changeIntervalTime}
       />
+      <Footer content="Copyright &copy; Pawlo1994 2022" />
     </>
   );
 }
