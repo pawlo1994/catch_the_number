@@ -1,12 +1,12 @@
 {
   "files": {
-    "main.js": "/catch_the_number/static/js/main.479212c6.js",
+    "main.js": "/catch_the_number/static/js/main.f7ffb79b.js",
     "static/js/787.28b19f23.chunk.js": "/catch_the_number/static/js/787.28b19f23.chunk.js",
     "index.html": "/catch_the_number/index.html",
-    "main.479212c6.js.map": "/catch_the_number/static/js/main.479212c6.js.map",
+    "main.f7ffb79b.js.map": "/catch_the_number/static/js/main.f7ffb79b.js.map",
     "787.28b19f23.chunk.js.map": "/catch_the_number/static/js/787.28b19f23.chunk.js.map"
   },
   "entrypoints": [
-    "static/js/main.479212c6.js"
+    "static/js/main.f7ffb79b.js"
   ]
 }
