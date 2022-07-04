@@ -1,6 +1,6 @@
 import styled, { css } from "styled-components";
 
-export const GameStartButton = styled.button`
+export const StyledGameStartButton = styled.button`
     padding: 10px;
     transition: ease box-shadow 0.3s;
     font-size: 20px;
