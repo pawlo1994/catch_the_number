@@ -22,6 +22,7 @@ export const NumberButtonFieldText = styled.p`
     text-transform: uppercase;
     margin: 20px auto;
     padding: 20px;
+    line-height: 2em ;
     width: 80%;
     max-width: 600px;
     font-size: 20px;
@@ -36,12 +37,16 @@ export const NumberButtonFieldText = styled.p`
 
 export const NumberButton = styled.button`
     font-size: 60px;
-    padding: 0 20px;
+    font-family: 'JetBrains Mono', monospace;
+    width: 60px;
+    padding: 6px;
     background-color: #090;
     color: #fff;
     border-radius: 5px;
     border: none;
-    display: block;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     position: relative;
     transition: 0.3s;
 
