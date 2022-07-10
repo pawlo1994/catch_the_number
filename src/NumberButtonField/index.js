@@ -1,5 +1,14 @@
 import { useDispatch, useSelector } from "react-redux";
-import { setNewIntervalTime, increaseScore, selectIsGameStarted, selectLives, selectX, selectY, setNewNumberButtonPosition, selectIntervalTime, selectScore } from "../gameStatsSlice";
+import {
+    changeCurrentGameState,
+    setNewIntervalTime,
+    selectIsGameStarted,
+    selectLives,
+    selectX,
+    selectY,
+    selectIntervalTime,
+    selectScore
+} from "../gameStatsSlice";
 import { NumberButton, NumberButtonFieldText, StyledNumberButtonField } from "./styled";
 
 export const NumberButtonField = ({ intervalID, changeIntervalTime }) => {
@@ -20,8 +29,7 @@ export const NumberButtonField = ({ intervalID, changeIntervalTime }) => {
                         transform: `translate(${x}px, ${y}px)`,
                     }}
                     onClick={() => {
-                        dispatch(setNewNumberButtonPosition(lives));
-                        dispatch(increaseScore());
+                        dispatch(changeCurrentGameState(lives));
                         clearInterval(intervalID.current);
                         changeIntervalTime(intervalTime);
                         if (score === 100) {
@@ -36,9 +44,6 @@ export const NumberButtonField = ({ intervalID, changeIntervalTime }) => {
                         if (score === 400) {
                             dispatch(setNewIntervalTime(200));
                         }
-                        if (lives === 0) {
-                            clearInterval(intervalID.current);
-                        }
                     }}
                     disabled={!isGameStarted || lives === 0}>
                     5
@@ -48,7 +53,7 @@ export const NumberButtonField = ({ intervalID, changeIntervalTime }) => {
                 hidden={lives !== 0}
             >
                 {lives === 0
-                    ? "game over. click on 🔁 button, then click on button with number to try again"
+                    ? `game over. click on \u21bb button, then click on button with number to try again`
                     : null}
             </NumberButtonFieldText>
         </>
