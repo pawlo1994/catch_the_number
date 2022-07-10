@@ -1,10 +1,9 @@
 import styled from "styled-components";
 
 export const StyledAppHeader = styled.header`
-    display: flex;
-    align-items: center;
-    justify-content: space-around;
-    margin: 20px;
+    position: relative;
+    margin: 20px auto;
+    width: 80%;
     padding: 10px 0;
     text-align: center;
     background-color: #aaa;
@@ -12,7 +11,8 @@ export const StyledAppHeader = styled.header`
 `;
 
 export const StyledAppHeaderContent = styled.h1`
-    width: 50%;
+    margin: 10px auto;
+    width: 80%;
     text-transform: uppercase;
     font-size: 40px;
     font-weight: normal;
