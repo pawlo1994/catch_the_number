@@ -14,41 +14,39 @@ const gameStatsSlice = createSlice({
         toggleIsGameStarted: state => {
             state.isGameStarted = !state.isGameStarted;
         },
-        setNewNumberButtonPosition: (state, { payload: lives }) => {
+        changeCurrentGameState: (state, { payload: lives }) => {
             if (lives !== 0) {
                 state.x = Math.ceil(Math.random() * 150) + 10;
                 state.y = Math.ceil(Math.random() * 150) + 10;
+                state.score = state.score + 5;
             }
-        },
-        increaseScore: state => {
-            state.score = state.score + 5;
         },
         decreaseLives: state => {
             if (state.lives !== 0) {
                 state.lives = state.lives - 1;
+                state.x = Math.ceil(Math.random() * 150) + 10;
+                state.y = Math.ceil(Math.random() * 150) + 10;
             }
         },
-        resetScoreAndLives: state => {
+        resetGameState: state => {
             state.lives = 5;
             state.score = 0;
+            state.x = 10;
+            state.y = 10;
+            state.intervalTime = 1000;
         },
         setNewIntervalTime: (state, { payload: newIntervalTime }) => {
             state.intervalTime = newIntervalTime;
-        },
-        resetIntervalTime: state => {
-            state.intervalTime = 1000;
         },
     }
 });
 
 export const {
     toggleIsGameStarted,
-    setNewNumberButtonPosition,
-    increaseScore,
+    changeCurrentGameState,
     decreaseLives,
-    resetScoreAndLives,
+    resetGameState,
     setNewIntervalTime,
-    resetIntervalTime,
 } = gameStatsSlice.actions;
 export const selectIsGameStarted = state => state.gameStats.isGameStarted;
 export const selectX = state => state.gameStats.x;
