@@ -2,17 +2,14 @@ import styled from "styled-components";
 
 export const StyledGameInfo = styled.div`
     display: flex;
+    flex-direction: column;
     align-items: center;
     justify-content: center;
     background-color: #333;
     color: #fff;
-    margin: 20px 0;
-    width: 30%;
+    margin: 20px auto;
+    width: 80%;
     border-radius: 20px;
-
-    @media(max-width: 767px){
-        flex-direction: column;
-    }
 `;
 
 export const GameInfoParagraph = styled.p`
