@@ -1,7 +1,6 @@
 import { useDispatch, useSelector } from "react-redux";
 import {
-    resetScoreAndLives,
-    setNewIntervalTime,
+    resetGameState,
     toggleIsGameStarted,
     selectIntervalTime,
     selectIsGameStarted,
@@ -19,21 +18,19 @@ export const GameStartButton = ({ changeIntervalTime, intervalID }) => {
             onClick={
                 () => {
                     dispatch(toggleIsGameStarted());
-                    dispatch(setNewIntervalTime(1000));
                     if (lives !== 0 && !isGameStarted) {
                         changeIntervalTime(intervalTime);
                     }
                     else {
-                        dispatch(toggleIsGameStarted());
-                        dispatch(resetScoreAndLives());
                         clearInterval(intervalID.current);
+                        dispatch(toggleIsGameStarted());
+                        dispatch(resetGameState());
                     }
-
                 }
             }
             hidden={isGameStarted && lives !== 0}
         >
-            {!isGameStarted ? "▶️" : "🔁"}
+            {!isGameStarted ? '\u25b6' : '\u21bb'}
         </StyledGameStartButton>
     );
 };
