@@ -53,7 +53,7 @@ export const NumberButtonField = ({ intervalID, changeIntervalTime }) => {
                 hidden={lives !== 0}
             >
                 {lives === 0
-                    ? `game over. click on \u21bb button, then click on button with number to try again`
+                    ? `game over. click on restart button, then click on button with number to try again`
                     : null}
             </NumberButtonFieldText>
         </>
