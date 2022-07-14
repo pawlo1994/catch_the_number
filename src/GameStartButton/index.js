@@ -7,6 +7,8 @@ import {
     selectLives
 } from "../gameStatsSlice";
 import { StyledGameStartButton } from "./styled";
+import play from "./play.png";
+import restart from "./restart.png";
 
 export const GameStartButton = ({ changeIntervalTime, intervalID }) => {
     const dispatch = useDispatch();
@@ -30,7 +32,7 @@ export const GameStartButton = ({ changeIntervalTime, intervalID }) => {
             }
             hidden={isGameStarted && lives !== 0}
         >
-            {!isGameStarted ? '\u25b6' : '\u21bb'}
+            <img src={!isGameStarted ? play : restart} alt={!isGameStarted ? "play" : "restart"} />
         </StyledGameStartButton>
     );
 };
