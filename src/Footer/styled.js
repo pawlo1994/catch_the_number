@@ -6,5 +6,5 @@ export const StyledFooter = styled.footer`
     background-color: #ccc;
     border-radius: 20px 20px 0 0;
     padding: 10px;
-    margin: 20px auto;
+    width: 100%;
 `;
