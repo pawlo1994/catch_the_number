@@ -10,6 +10,7 @@ export const StyledGameInfo = styled.div`
     margin: 0 auto 10px;
     font-weight: 700;
     font-size: 16px;
+    border-radius: 0 0 20px 20px;
 `;
 
 export const GameInfoParagraph = styled.p`
