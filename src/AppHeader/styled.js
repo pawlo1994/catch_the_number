@@ -6,8 +6,6 @@ export const StyledAppHeader = styled.header`
     padding: 10px 0;
     text-align: center;
     background-color: rgba(150,150,150,0.5);
-    width: 100%;
-    border-radius: 0 0 20px 20px;
 `;
 
 export const StyledAppHeaderContent = styled.h1`
