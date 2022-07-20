@@ -4,13 +4,13 @@ export const StyledGameInfo = styled.div`
     display: flex;
     flex-direction: column;
     align-items: center;
+    width: 100%;
     justify-content: center;
     background-color: #333;
     color: #fff;
     margin: 0 auto 10px;
     font-weight: 700;
     font-size: 16px;
-    border-radius: 0 0 20px 20px;
 `;
 
 export const GameInfoParagraph = styled.p`
