@@ -7,5 +7,4 @@ export const StyledFooter = styled.footer`
     border-radius: 20px;
     padding: 10px;
     margin: 20px auto;
-    width: 80%;
 `;
