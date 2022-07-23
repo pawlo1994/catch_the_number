@@ -9,7 +9,6 @@ export const StyledGameInfo = styled.div`
     color: #fff;
     margin: 0 auto 10px;
     font-weight: 700;
-    font-size: 16px;
     border-radius: 0 0 20px 20px;
 `;
 
@@ -21,9 +20,9 @@ export const GameInfoParagraph = styled.p`
     justify-content: space-between;
 `;
 
-export const GameInfoParagraphIcon = styled.span`
+export const GameInfoParagraphIcon = styled.img`
     display: block;
-    text-align: left;
+    width: 16px;
 `;
 
 export const GameInfoParagraphText = styled.span`
