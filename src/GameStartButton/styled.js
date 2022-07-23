@@ -30,3 +30,7 @@ export const StyledGameStartButton = styled.button`
         display: none;
     `}
 `;
+
+export const GameStartButtonIcon = styled.img`
+    width: 32px;
+`;
