@@ -20,4 +20,8 @@ export const StyledAppHeaderContent = styled.h1`
      -2px 2px 4px #ddd,
      2px -2px 4px #999;
     padding: 5px;
+
+    @media(min-width: 1280px){
+        font-size: 64px;
+    };
 `;
