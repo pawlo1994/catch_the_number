@@ -16,16 +16,16 @@ const gameStatsSlice = createSlice({
         },
         changeCurrentGameState: (state, { payload: lives }) => {
             if (lives !== 0) {
-                state.x = Math.ceil(Math.random() * 150) + 10;
-                state.y = Math.ceil(Math.random() * 150) + 10;
+                state.x = Math.ceil(Math.random() * 160) + 10;
+                state.y = Math.ceil(Math.random() * 139) + 10;
                 state.score = state.score + 5;
             }
         },
         decreaseLives: state => {
             if (state.lives !== 0) {
                 state.lives = state.lives - 1;
-                state.x = Math.ceil(Math.random() * 150) + 10;
-                state.y = Math.ceil(Math.random() * 150) + 10;
+                state.x = Math.ceil(Math.random() * 160) + 10;
+                state.y = Math.ceil(Math.random() * 139) + 10;
             }
         },
         resetGameState: state => {
