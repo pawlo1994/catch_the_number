@@ -16,6 +16,7 @@ export const GameStartButton = ({ changeIntervalTime, intervalID }) => {
     const isGameStarted = useSelector(state => selectIsGameStarted(state));
     const lives = useSelector(state => selectLives(state));
     return (
+        !isGameStarted &&
         <StyledGameStartButton
             onClick={
                 () => {
@@ -30,9 +31,8 @@ export const GameStartButton = ({ changeIntervalTime, intervalID }) => {
                     }
                 }
             }
-            hidden={isGameStarted && lives !== 0}
         >
-            <GameStartButtonIcon src={!isGameStarted ? play : restart} alt={!isGameStarted ? "play" : "restart"} />
+            <GameStartButtonIcon src={lives !== 0 ? play : restart} alt={lives !== 0 ? "play" : "restart"} />
         </StyledGameStartButton>
     );
 };
