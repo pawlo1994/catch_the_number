@@ -16,13 +16,13 @@ export const GameInfoParagraph = styled.p`
     margin: 5px;
     width: 50%;
     display: flex;
-    align-items: center;
+    align-items: flex-end;
     justify-content: space-between;
 `;
 
 export const GameInfoParagraphIcon = styled.img`
     display: block;
-    width: 16px;
+    width: 24px;
 `;
 
 export const GameInfoParagraphText = styled.span`
