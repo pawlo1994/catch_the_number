@@ -2,7 +2,7 @@ import { useRef } from "react";
 import { GameStartButton } from "./GameStartButton/index";
 import { GlobalStyle } from "./globalStyle.js";
 import { AppHeader } from "./AppHeader";
-import { NumberButtonField } from "./NumberButtonField/index.js";
+import { GameField } from "./GameField/index.js";
 import { Footer } from "./Footer/index.js";
 import { useChangeIntervalTime } from "./useChangeIntervalTime.js";
 import { GameInfo } from "./GameInfo";
@@ -21,7 +21,7 @@ const App = () => {
         intervalID={intervalID}
         changeIntervalTime={changeIntervalTime}
       />
-      <NumberButtonField
+      <GameField
         intervalID={intervalID}
         changeIntervalTime={changeIntervalTime}
       />
