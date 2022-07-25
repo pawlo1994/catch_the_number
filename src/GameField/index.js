@@ -1,3 +1,4 @@
+import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import {
     changeCurrentGameState,
@@ -23,9 +24,13 @@ export const GameField = ({ intervalID, changeIntervalTime }) => {
     const score = useSelector(state => selectScore(state));
     const isGameStarted = useSelector(state => selectIsGameStarted(state));
     const intervalTime = useSelector(state => selectIntervalTime(state));
-    if (lives === 0 && isGameStarted) {
-        dispatch(toggleIsGameStarted());
-    }
+
+    useEffect(() => {
+        if (lives === 0 && isGameStarted) {
+            dispatch(toggleIsGameStarted());
+        }
+    });
+
     return (
         <StyledGameField
             gameOver={lives === 0}
