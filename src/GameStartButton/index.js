@@ -20,13 +20,11 @@ export const GameStartButton = ({ changeIntervalTime, intervalID }) => {
         <StyledGameStartButton
             onClick={
                 () => {
-                    dispatch(toggleIsGameStarted());
                     if (lives !== 0 && !isGameStarted) {
                         changeIntervalTime(intervalTime);
+                        dispatch(toggleIsGameStarted());
                     }
                     else {
-                        clearInterval(intervalID.current);
-                        dispatch(toggleIsGameStarted());
                         dispatch(resetGameState());
                     }
                 }
