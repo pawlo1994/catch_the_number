@@ -28,6 +28,7 @@ export const GameField = ({ intervalID, changeIntervalTime }) => {
     useEffect(() => {
         if (lives === 0 && isGameStarted) {
             dispatch(toggleIsGameStarted());
+            clearInterval(intervalID.current);
         }
     });
 
