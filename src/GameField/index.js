@@ -9,7 +9,8 @@ import {
     selectIntervalTime,
     selectScore,
     toggleIsGameStarted,
-    selectIsGameStarted
+    selectIsGameStarted,
+    selectIsGameFieldButtonMissclicked
 } from "../gameStatsSlice";
 import {
     GameFieldButton,
@@ -23,6 +24,7 @@ export const GameField = ({ intervalID, changeIntervalTime }) => {
     const lives = useSelector(state => selectLives(state));
     const score = useSelector(state => selectScore(state));
     const isGameStarted = useSelector(state => selectIsGameStarted(state));
+    const isGameFieldButtonMissclicked = useSelector(state => selectIsGameFieldButtonMissclicked(state));
     const intervalTime = useSelector(state => selectIntervalTime(state));
 
     useEffect(() => {
@@ -62,7 +64,8 @@ export const GameField = ({ intervalID, changeIntervalTime }) => {
                             dispatch(setNewIntervalTime(200));
                         }
                     }}
-                    disabled={!isGameStarted}>
+                    disabled={!isGameStarted}
+                    missclicked={isGameFieldButtonMissclicked}>
                     5
                 </GameFieldButton>
                 :
