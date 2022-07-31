@@ -4,6 +4,7 @@ const gameStatsSlice = createSlice({
     name: 'gameStats',
     initialState: {
         isGameStarted: false,
+        isGameFieldButtonMissclicked: false,
         x: 10,
         y: 10,
         score: 0,
@@ -19,6 +20,7 @@ const gameStatsSlice = createSlice({
                 state.x = Math.ceil(Math.random() * 160) + 10;
                 state.y = Math.ceil(Math.random() * 139) + 10;
                 state.score = state.score + 5;
+                state.isGameFieldButtonMissclicked = false;
             }
         },
         decreaseLives: state => {
@@ -26,6 +28,7 @@ const gameStatsSlice = createSlice({
                 state.lives = state.lives - 1;
                 state.x = Math.ceil(Math.random() * 160) + 10;
                 state.y = Math.ceil(Math.random() * 139) + 10;
+                state.isGameFieldButtonMissclicked = true;
             }
         },
         resetGameState: state => {
@@ -34,6 +37,7 @@ const gameStatsSlice = createSlice({
             state.x = 10;
             state.y = 10;
             state.intervalTime = 1000;
+            state.isGameFieldButtonMissclicked = false;
         },
         setNewIntervalTime: (state, { payload: newIntervalTime }) => {
             state.intervalTime = newIntervalTime;
@@ -49,6 +53,7 @@ export const {
     setNewIntervalTime,
 } = gameStatsSlice.actions;
 export const selectIsGameStarted = state => state.gameStats.isGameStarted;
+export const selectIsGameFieldButtonMissclicked = state => state.gameStats.isGameFieldButtonMissclicked;
 export const selectX = state => state.gameStats.x;
 export const selectY = state => state.gameStats.y;
 export const selectScore = state => state.gameStats.score;
