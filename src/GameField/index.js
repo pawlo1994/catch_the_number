@@ -42,9 +42,19 @@ export const GameField = ({ intervalID, changeIntervalTime }) => {
             {(lives !== 0)
                 ?
                 <motion.div
-                    animate={{
-                        filter: isGameFieldButtonMissclicked ? "hue-rotate(245deg)" : "unset",
-                    }}
+                    animate={
+                        isGameFieldButtonMissclicked ?
+                            {
+                                filter: "hue-rotate(235deg)",
+                            } :
+                            "unset"
+                    }
+                    transition={
+                        {
+                            ease: "linear",
+                            duration: 0.15,
+                        }
+                    }
                 >
                     <GameFieldButton
                         style={{
@@ -77,6 +87,6 @@ export const GameField = ({ intervalID, changeIntervalTime }) => {
                 :
                 `game over. click on restart button to try again`
             }
-        </StyledGameField>
+        </StyledGameField >
     )
 };
