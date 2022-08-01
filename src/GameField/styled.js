@@ -52,8 +52,4 @@ export const GameFieldButton = styled.button`
         background-color: #0e0;
         color: #aaa;
     }
-
-    ${({ missclicked }) => missclicked && css`
-        box-shadow: 0px 0px 3px 3px #f00;
-    `}
 `;
