@@ -1,5 +1,6 @@
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
+import { motion } from "framer-motion";
 import {
     changeCurrentGameState,
     setNewIntervalTime,
@@ -40,34 +41,39 @@ export const GameField = ({ intervalID, changeIntervalTime }) => {
         >
             {(lives !== 0)
                 ?
-                <GameFieldButton
-                    style={{
-                        transform: `translate(${x}px, ${y}px)`,
+                <motion.div
+                    animate={{
+                        filter: isGameFieldButtonMissclicked ? "hue-rotate(245deg)" : "unset",
                     }}
-                    onClick={() => {
-                        if (!isGameStarted) {
-                            dispatch(toggleIsGameStarted());
-                        }
-                        dispatch(changeCurrentGameState(lives));
-                        clearInterval(intervalID.current);
-                        changeIntervalTime(intervalTime);
-                        if (score === 100) {
-                            dispatch(setNewIntervalTime(800));
-                        }
-                        if (score === 200) {
-                            dispatch(setNewIntervalTime(600));
-                        }
-                        if (score === 300) {
-                            dispatch(setNewIntervalTime(400));
-                        }
-                        if (score === 400) {
-                            dispatch(setNewIntervalTime(200));
-                        }
-                    }}
-                    disabled={!isGameStarted}
-                    missclicked={isGameFieldButtonMissclicked}>
-                    5
-                </GameFieldButton>
+                >
+                    <GameFieldButton
+                        style={{
+                            transform: `translate(${x}px, ${y}px)`,
+                        }}
+                        onClick={() => {
+                            if (!isGameStarted) {
+                                dispatch(toggleIsGameStarted());
+                            }
+                            dispatch(changeCurrentGameState(lives));
+                            clearInterval(intervalID.current);
+                            changeIntervalTime(intervalTime);
+                            if (score === 100) {
+                                dispatch(setNewIntervalTime(800));
+                            }
+                            if (score === 200) {
+                                dispatch(setNewIntervalTime(600));
+                            }
+                            if (score === 300) {
+                                dispatch(setNewIntervalTime(400));
+                            }
+                            if (score === 400) {
+                                dispatch(setNewIntervalTime(200));
+                            }
+                        }}
+                        disabled={!isGameStarted}>
+                        5
+                    </GameFieldButton>
+                </motion.div>
                 :
                 `game over. click on restart button to try again`
             }
