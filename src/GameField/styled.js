@@ -8,7 +8,6 @@ export const StyledGameField = styled.div`
     margin: 15px auto;
     width: 250px;
     height: 250px;
-    transition: ease filter 0.3s;
     ${({ gameOver }) => gameOver && css`
         display: flex;
         align-items: center;
@@ -17,7 +16,7 @@ export const StyledGameField = styled.div`
         text-transform: uppercase;
         margin: 20px auto;
         padding: 20px;
-        line-height: 2em ;
+        line-height: 2em;
         width: 80%;
         max-width: 600px;
         font-size: 20px;
@@ -40,7 +39,7 @@ export const GameFieldButton = styled.button`
     align-items: center;
     justify-content: center;
     position: relative;
-    transition: 0.3s;
+    transition: 0.15s;
 
     &:active{
         filter: brightness(1.5);
