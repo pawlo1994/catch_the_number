@@ -17,6 +17,7 @@ import {
     GameFieldButton,
     StyledGameField
 } from "./styled";
+import { useTransitionTime } from "./useTransitionTime";
 
 export const GameField = ({ intervalID, changeIntervalTime }) => {
     const dispatch = useDispatch();
@@ -27,6 +28,7 @@ export const GameField = ({ intervalID, changeIntervalTime }) => {
     const isGameStarted = useSelector(state => selectIsGameStarted(state));
     const isGameFieldButtonMissclicked = useSelector(state => selectIsGameFieldButtonMissclicked(state));
     const intervalTime = useSelector(state => selectIntervalTime(state));
+    const transitionTime = useTransitionTime();
 
     useEffect(() => {
         if (lives === 0 && isGameStarted) {
@@ -52,13 +54,14 @@ export const GameField = ({ intervalID, changeIntervalTime }) => {
                     transition={
                         {
                             ease: "linear",
-                            duration: 0.15,
+                            duration: `${transitionTime}`,
                         }
                     }
                 >
                     <GameFieldButton
                         style={{
                             transform: `translate(${x}px, ${y}px)`,
+                            transition: `${transitionTime}s`,
                         }}
                         onClick={() => {
                             if (!isGameStarted) {
