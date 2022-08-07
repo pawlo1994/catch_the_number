@@ -39,7 +39,6 @@ export const GameFieldButton = styled.button`
     align-items: center;
     justify-content: center;
     position: relative;
-    transition: 0.15s;
 
     &:active{
         filter: brightness(1.5);
