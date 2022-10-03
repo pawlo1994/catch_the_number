@@ -54,7 +54,7 @@ export const GameField = ({ intervalID, changeIntervalTime }) => {
                     transition={
                         {
                             ease: "linear",
-                            duration: `${transitionTime}`,
+                            duration: `${transitionTime / 10}`,
                         }
                     }
                 >
@@ -90,6 +90,6 @@ export const GameField = ({ intervalID, changeIntervalTime }) => {
                 :
                 `game over. click on restart button to try again`
             }
-        </StyledGameField >
+        </StyledGameField>
     )
 };
