@@ -18,6 +18,7 @@ import {
     StyledGameField
 } from "./styled";
 import { useTransitionTime } from "./useTransitionTime";
+import { useHighScore } from "./useHighScore";
 
 export const GameField = ({ intervalID, changeIntervalTime }) => {
     const dispatch = useDispatch();
@@ -29,6 +30,7 @@ export const GameField = ({ intervalID, changeIntervalTime }) => {
     const isGameFieldButtonMissclicked = useSelector(state => selectIsGameFieldButtonMissclicked(state));
     const intervalTime = useSelector(state => selectIntervalTime(state));
     const transitionTime = useTransitionTime();
+    const highScore = useHighScore();
 
     useEffect(() => {
         if (lives === 0 && isGameStarted) {
@@ -88,8 +90,11 @@ export const GameField = ({ intervalID, changeIntervalTime }) => {
                     </GameFieldButton>
                 </motion.div>
                 :
-                `game over. click on restart button to try again`
-            }
+                <>
+                    {(score > highScore) ?
+                        localStorage.setItem('highScore', score) : localStorage.setItem('highScore', highScore)}
+                    game over. click on restart button to try again
+                </>}
         </StyledGameField>
     )
 };
