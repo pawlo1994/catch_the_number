@@ -1,6 +1,5 @@
 # Catch The Number
 
-WORK IN PROGRESS 🏗️
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Demo
@@ -13,12 +12,18 @@ https://pawlo1994.github.io/catch_the_number
 4. React
 
 ## Description
-In this game you have to catch the number until it go away under your thumb (or cursor, if you play on desktop).
-In every 100 points button speeds up.
-Every catch gives you 5 more points.
-Every missclick takes 1 heart from you.
-Try to catch this number as many times as you can.
-**Good Luck**
+In this game you have to catch the number until it go away under your thumb (or cursor, if you play on desktop).<br />
+In every 100 points button speeds up.<br />
+Every catch gives you 5 more points.<br />
+Every missclick takes 1 heart from you.<br />
+Try to catch this number as many times as you can.<br />
+Your high score is stored in local storage.<br />
+
+**GOOD LUCK**
+
+## Preview
+![preview](public/preview.gif)
+
 
 ## Available Scripts
 
