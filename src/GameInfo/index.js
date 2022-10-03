@@ -9,12 +9,15 @@ import {
 import scoreImage from "./score.png";
 import livesImage from "./lives.png";
 import intervalImage from "./interval.png";
+import highScoreImage from "./highscore.png";
+import { useHighScore } from "../GameField/useHighScore";
 
 
 export const GameInfo = () => {
     const score = useSelector(state => selectScore(state));
     const lives = useSelector(state => selectLives(state));
     const intervalTime = useSelector(state => selectIntervalTime(state));
+    const highScore = useHighScore();
     return (
         <StyledGameInfo>
             <GameInfoParagraph>
@@ -28,6 +31,10 @@ export const GameInfo = () => {
             <GameInfoParagraph>
                 <GameInfoParagraphIcon src={intervalImage} alt="interval" />
                 <GameInfoParagraphText>{intervalTime / 1000}s</GameInfoParagraphText>
+            </GameInfoParagraph>
+            <GameInfoParagraph>
+                <GameInfoParagraphIcon src={highScoreImage} alt="interval" />
+                <GameInfoParagraphText>{highScore}</GameInfoParagraphText>
             </GameInfoParagraph>
         </StyledGameInfo>
     )
